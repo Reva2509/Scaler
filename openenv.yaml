@@ -1,0 +1,37 @@
+name: email-triage-env
+version: 1.0.0
+description: Realistic email triage environment where agents must prioritize, categorize, and respond to emails appropriately
+author: OpenEnv Contributor
+tags:
+  - email-triage
+  - productivity
+  - real-world
+  - openenv
+
+observation_space:
+  type: dict
+  properties:
+    inbox:
+      type: array
+      items:
+        type: object
+    current_email:
+      type: object
+    time_remaining:
+      type: integer
+
+action_space:
+  type: string
+  enum:
+    - prioritize_high
+    - prioritize_normal
+    - prioritize_low
+    - categorize
+    - draft_reply
+    - mark_spam
+    - archive
+    - request_info
+    - escalate
+
+reward_type: float
+reward_range: [0.0, 1.0]
